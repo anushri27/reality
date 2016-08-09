@@ -1,0 +1,267 @@
+/* STYLE */ 
+
+/*SAME FOR ALL */
+
+/*BACKGROUND FOR ALL PAGES!!! ALSO TAKE THE HTML ASK ANUSHRI IF UR NOT SURE*/
+/*http://enjoycss.com/code/#box*/
+.enjoy-css {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 1280px;
+  height: 4800px;
+  border: none;
+  font: normal 100%/normal Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: -webkit-linear-gradient(63deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(-117deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(63deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(-117deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(0deg, rgb(27,27,27) 10px, rgba(0,0,0,0) 10px), -webkit-linear-gradient(-90deg, rgb(29,29,29) 25%, rgb(26,26,26) 25%, rgb(26,26,26) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgb(36,36,36) 75%, rgb(36,36,36) 100%), rgb(19, 19, 19);
+  background: -moz-linear-gradient(27deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -moz-linear-gradient(207deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -moz-linear-gradient(27deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -moz-linear-gradient(207deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -moz-linear-gradient(90deg, rgb(27,27,27) 10px, rgba(0,0,0,0) 10px), -moz-linear-gradient(180deg, rgb(29,29,29) 25%, rgb(26,26,26) 25%, rgb(26,26,26) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgb(36,36,36) 75%, rgb(36,36,36) 100%), rgb(19, 19, 19);
+  background: linear-gradient(27deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), linear-gradient(207deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), linear-gradient(27deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), linear-gradient(207deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), linear-gradient(90deg, rgb(27,27,27) 10px, rgba(0,0,0,0) 10px), linear-gradient(180deg, rgb(29,29,29) 25%, rgb(26,26,26) 25%, rgb(26,26,26) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgb(36,36,36) 75%, rgb(36,36,36) 100%), rgb(19, 19, 19);
+  background-position: 0 5px, 10px 0, 0 10px, 10px 5px, 0 0, 0 0;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: 20px 20px;
+  background-size: 20px 20px;
+}
+
+#bod{
+  background: -webkit-linear-gradient(63deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(-117deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(63deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(-117deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -webkit-linear-gradient(0deg, rgb(27,27,27) 10px, rgba(0,0,0,0) 10px), -webkit-linear-gradient(-90deg, rgb(29,29,29) 25%, rgb(26,26,26) 25%, rgb(26,26,26) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgb(36,36,36) 75%, rgb(36,36,36) 100%), rgb(19, 19, 19);
+  background: -moz-linear-gradient(27deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -moz-linear-gradient(207deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), -moz-linear-gradient(27deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -moz-linear-gradient(207deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), -moz-linear-gradient(90deg, rgb(27,27,27) 10px, rgba(0,0,0,0) 10px), -moz-linear-gradient(180deg, rgb(29,29,29) 25%, rgb(26,26,26) 25%, rgb(26,26,26) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgb(36,36,36) 75%, rgb(36,36,36) 100%), rgb(19, 19, 19);
+  background: linear-gradient(27deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), linear-gradient(207deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), linear-gradient(27deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), linear-gradient(207deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), linear-gradient(90deg, rgb(27,27,27) 10px, rgba(0,0,0,0) 10px), linear-gradient(180deg, rgb(29,29,29) 25%, rgb(26,26,26) 25%, rgb(26,26,26) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, rgb(36,36,36) 75%, rgb(36,36,36) 100%), rgb(19, 19, 19);
+  background-position: 0 5px, 10px 0, 0 10px, 10px 5px, 0 0, 0 0;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: 20px 20px;
+  background-size: 20px 20px;
+}
+
+.relative {
+	margin: 0px;
+	padding: 0px;
+
+}
+/*
+.UserPage {
+	background-color: red;
+}*/
+
+/*ANUSRHI'S NEW CSS*/
+
+/*START HOME PAGE*/
+
+.image {
+	position: relative; 
+	width: 100%; /* for IE 6 */
+}
+
+.background {
+	position: relative;
+	background: url(earth.jpg);
+	border: 2px solid black;
+  	width: 100%;
+  	height: 100%;
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+ 
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+
+#startButton {
+	text-align: center;
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-radius: 0px;
+}
+
+#MainButton {
+	position: relative;
+}
+
+.btn.sharp {
+  border-radius:0;
+}
+
+.btn-primary: focus {
+    background: #99FFFF;
+    color: #99FFFF;
+ }
+
+/*END HOME PAGE */
+
+
+/*START ENVIRONMENTAL PAGE*/
+
+#environmentalHeader {
+    margin:0px; 
+    padding-top: 30px; 
+    text-align: center;
+    font-family: 'Abel', sans-serif;
+}
+
+/*OVERFISHING*/
+
+#overfishing {
+  padding-left: 30px;
+  font-family: 'Abel', sans-serif;
+}
+
+#overfishing_row {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+#boxsize1 {
+  width: 89%;
+}
+
+/*CORAL BLEACHING*/
+
+#boxsize2 {
+  width: 89%;
+}
+
+#coralBleaching_row {
+  padding-left: 10px;
+}
+
+
+#coralBleaching {
+  padding-left: 30px;
+  font-family: 'Abel', sans-serif;
+}
+
+/*DEFORESTATION*/
+
+#boxsize3 {
+  width: 89%;
+}
+
+#deforestation_row {
+  padding-left: 10px;
+}
+
+
+#deforestation {
+  padding-left: 30px;
+  font-family: 'Abel', sans-serif;
+}
+
+/*CHEMICAL SPILLS*/
+
+#boxsize4 {
+  width: 89%;
+}
+
+#checmial_row {
+  padding-left: 10px;
+}
+
+
+#chemicalSpills {
+  padding-left: 30px;
+  font-family: 'Abel', sans-serif;
+}
+
+/*START FRACKING*/
+
+#boxsize3 {
+  width: 89%;
+}
+
+#fracking_row {
+  padding-left: 10px;
+}
+
+
+#fracking {
+  padding-left: 30px;
+  font-family: 'Abel', sans-serif;
+}
+
+/*START CLIMATE CHANGE*/
+
+#boxsize5 {
+  width: 89%;
+}
+
+#climate_row {
+  padding-left: 10px;
+}
+
+
+#climate {
+  padding-left: 30px;
+  font-family: 'Abel', sans-serif;
+}
+
+
+/*BUTTON ON HOME SCREEN*/
+
+body {
+  background: black;
+}
+.button {
+  background-color: #004A7F;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-decoration: none;
+  /*display: relative; */
+}
+@-webkit-keyframes glowing {
+  0% { background-color: #FFDD7A; -webkit-box-shadow: 0 0 3px #FFDD7A; }
+  50% { background-color: #FFDD7A; -webkit-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #FFDD7A; -webkit-box-shadow: 0 0 3px #FFDD7A; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #FFDD7A; -moz-box-shadow: 0 0 3px #FFDD7A; }
+  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #FFDD7A; -moz-box-shadow: 0 0 3px #FFDD7A; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #FFDD7A; box-shadow: 0 0 3px #FFDD7A; }
+  50% { background-color: #A0E8B1; box-shadow: 0 0 40px #A0E8B1; }
+  100% { background-color: #FFDD7A; box-shadow: 0 0 3px #FFDD7A; }
+}
+
+.button {
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+
+#button1 {
+  text-align: center;
+}
+

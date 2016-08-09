@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Text Adventure Game</title>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- BOOTSTRAP ELEMENT -->
+
+<link rel="stylesheet" type="text/css" href="GameCSS.css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
+
+
+
+
+</head>
+
+
+<body class ="UserPage background" id="bod">
+
+<!-- NAV BAR AT THE TOP OF SCREEN -->
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <!-- <nav class="navbar navbar-default"> -->
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">R.E.A.L.ity</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="HomePage.html">Home</a></li>
+        <li class="active"><a href="Game.html">Text Adventure Game<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Issues <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="Environmental.html">Environmental</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="Social.html">Social </a></li>
+          <!--    <li><a href="#">Something else here</a></li> -->
+          <!--             <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li> -->
+          </ul>
+        </li>
+
+        <li><a href="About.html">About the Creators</a></li>
+        <li><a href="sources.html">Sources<span class="sr-only">(current)</span></a></li>
+      </ul>
+        <!--       <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+        -->
+      <!-- Right Nav Bar, open if needed -->
+
+        <!--       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul> -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div>
+
+  <br><br><br><br><br><br>
+
+<div class = "transbox">
+
+  <div id="text">
+  </div>
+  <br><br>
+
+<!-- <div class="container">
+  <h3>Tooltip Example</h3>
+  <a id="ho" href="#" data-toggle="tooltip" title="Hooray!">Read More</a>
+</div> -->
+
+</div>
+
+<div id="buttonBox">
+</div> 
+<br><br>
+
+
+
+
+
+
+<script>
+
+// $(document).ready(function(){
+//     $('[data-toggle="tooltip"]').tooltip();
+// });
+
+
+var text = document.getElementById("text");
+
+var buttonBox = document.getElementById('buttonBox');
+
+var yerdog;
+
+
+var changeText = function(words) {
+  text.innerHTML = words.replace("Your dog", yerdog);
+};
+
+var changeButtons = function(buttonList) {
+  buttonBox.innerHTML = "";
+  for (var i = 0; i < buttonList.length; i++) {
+    buttonBox.innerHTML += "<button class='btn btn-danger' id = 'buttonsize' onClick=" + buttonList[i][2] + buttonList[i][1] + ">" + buttonList[i][0] + "</button>";
+  }
+};
+
+var changeBackground = function(image) {
+  var back = document.getElementById("bod");
+  back.style.backgroundImage = "url(" + image + ")";
+}
+
+// var hoverInfo = function(text) {
+//   var hoverable = document.getElementById("ho");
+//   hoverable.title=text;
+// }
+
+var advanceTo = function(s) {
+  changeText(s.text);
+  changeButtons(s.buttons);
+  // hoverInfo(s.message);
+};
+
+
+
+scenario = {}
+var scenario = {
+  
+  one: {
+    text: "Welcome to REALity. <br/> <br/> You have just recently finished building your time machine. Having completed animal trials, you are confident that you should be able to survive a trip to another time. While strapping in your seat you consider the likelihood of being able to return to your time period. There is the tiniest of possibilities that you'll get stuck in whatever time period you're deposited in. You better choose wisely then,  just in case. You consider the buttons before you: Past and Future. Those buttons will transport you a random number of years into the future or past. Now, despite the clear shortcomings of this randomness, your machine is still top of the line and will outfit you with the years' fashion and local dialect. Your hand hovers over the buttons. What will you do?",
+   buttons: [["Go to The Past", "advanceTo(scenario.two)", "changeBackground('past.jpg');"],["Go to The Future", "advanceTo(scenario.three)", "changeBackground('future.jpg');"],["You have work so you stay in The Present", "advanceTo(scenario.four)", "changeBackground('present.jpg');"]],
+   // message: "scene one test"
+
+
+  },
+
+
+// ------------------------------------------------------------------- PAST ROBIN ---------------------------------------------------------
+
+  two: {
+    text: "You feel the time machine come to a shaky halt. The door automatically opens and you cautiously peer outside. You see a lush forest, nothing like the city you left behind. You wonder where the time machine took you before remembering that about 13 million hectares of forests are lost each year to deforestation. This means you are probably in the same location before it was a city. You step outside to look around, but as you exit the time machine it disappears, leaving you no chance of returning to your time. That's okay, living in the past seems fun.<br/> <br/> You keep walking and as you reach the edge of the forest you come upon a small house. You can hear a scuffle in the back, and think that maybe a dog is attacking someone. Do you get involved.",
+    buttons: [["Of course I will try and help. Someone could be in trouble", "advanceTo(scenario.two_a)", ""],["No way! This isn't even my time period, I could mess something up for good!", "advanceTo(scenario.two_b)", ""]],
+    // message: "scene 3",
+  },
+
+  two_a: {
+    text: "You cautiously walk around the side of the house and discover a crowd of people surrounding and cheering on barking, and snarling dogs. You can only assume that this is a dog fight by the way the men are waving money in the air and threatening each other. You don't know much about dog fighting, but you are pretty sure that it is animal abuse and illegal. Maybe you should do something, but what can you do? You stop and think about the situation. You are in the past not the present, and you are not quite sure when dog fighting was officially outlawed. Also getting in the middle of a dog fight could be dangerous. On the other hand if you could get a little closer you might be able to determine what time you landed in, and maybe how to get to the closest city. Will you try and get more information or leave and keep walking?",
+    buttons: [["Get closer and investigate", "advanceTo(scenario.two_c)", ""],["Try and back out, this could be dangerous.", "advanceTo(scenario.two_b)", ""]]
+  },
+
+  two_b: {
+    text: "You choose to keep walking and leave the situation as it is. You think this is probably for the best, and all the time travel movies you've seen back you up. It is never good to tamper with the past. You will try to blend in and avoid doing anything you think will interfere with history. <br/> <br/> You have been walking for miles before you see another sign of civilization. As you keep walking you reach what seems to be a city. You see shops and a movie theater on one side of the street, and you make a note to visit them after you have found somewhere to eat. You finally find a restaurant and you can't wait to see what the food is like. As soon as you step into the door a man tells you to leave. You are confused, and look behind you to see if he is talking to you. He is. You ask him why and he tells you to get out. You think it must be because of your race. You realize as you look around that you must be in the 1950s or 1960s. What will you do?",
+    buttons: [["Leave, it's not worth the fight", "advanceTo(scenario.two_f)", ""],["“Refuse to leave until you get your food.", "advanceTo(scenario.two_g)", ""]]
+  },
+
+   two_c: {
+    text: "You decide that if you are careful you can discover what is going on. Maybe not one of your best decisions. As you walk towards the large group of people one of the dogs waiting to fight gets loose and attacks you. Someone pulls the dog away and asks you who you are. What do you say?",
+    buttons: [["Tell the truth and try to explain", "advanceTo(scenario.two_d)", ""], ["Make something up", "advanceTo(scenario.two_e)", ""]]
+  },
+
+   two_d: {
+    text: "They don't quite believe you , but they are intrigued, and don't think you pose a threat. A small group carries you inside to treat your wounds. As they tell you to lie down and rest you ask if the dogs have gotten rabies vaccines. They look at you like you are crazy, and you figure it is because they are fighting dogs and not pets. Then they tell you there is no such thing, and the one developed for humans is ineffective. The rabies vaccine providing a three year immunity to rabies for dogs was developed in 1979. You must be the 1950s or 1960s judging by the clothing, so you are out of luck. Unfortunately the dog that bit you was indeed rabid and you never leave that house. You realize the importance of modern medical care.",
+    buttons: [["Play Again", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+  },
+
+  two_e: {
+    text: "You make up a name and a reason for being there, but they can tell that you are lying. They assume that you have come to stop them and they have the rest of their dogs attack you. They overpower you and you die from your injuries.",
+  buttons: [["Play Again", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+  }, 
+
+  two_f: {
+    text: "You decide to leave and go find somewhere else that will serve you. You find a small restaurant on a street corner that has amazing food. After you have eaten things start to look up. You go for a walk, and start to think about settling into life in the past. You decide that before you can do that you will need find a job. The waiter at the restaurant said that the school nearby is looking for a teacher. That is one option. You walk past a car shop that has a sign that says it is now hiring. You know enough about cars to get by as a mechanic. Which job will you choose?",
+    buttons: [["Teacher", "advanceTo(scenario.two_h)", ""], ["Mechanic", "advanceTo(scenario.two_i)", ""]]
+  },
+
+
+  two_g: {
+    text: "You are determined to stay until you get your food, but the restaurant owner got his largest employees to throw you out on the street. Thoroughly disappointed by the way you have been treated, you run back to the forest to rebuild your time machine and go back to the present.",
+    buttons: [["Play Again", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+  },
+
+  two_h: {
+    text: "You become a school teacher and buy yourself a small house close to the school. You don't get paid very well, your working conditions are poor and you can't even get your own credit card because you are not married. Besides all of this you settle down and spend the rest of your days in this town. You never tell anyone where you came from, or how you got there.",
+    buttons: [["Play Again", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+  },
+
+  two_i: {
+    text: "You try to get a job as a mechanic, but they reject you because of your gender. Instead of getting a job you marry a mean rich man and live a somewhat sad and lonely life. You wish you had never built that time machine in the first place.",
+    buttons: [["Play Again", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+  },
+
+
+
+
+
+
+
+// ------------------------------------------------------------------- FUTURE EVA ---------------------------------------------------------
+
+
+  three: {
+    text: " The future is a place of robots and flying cars, a place free of disease and poverty! At least, that's what your Sci Fi novels have led you to believe and you have zero reason to doubt their predictive abilities. The minute you press that button you lose consciousness and travel about 128 years into the future…<br>You have the worst headache of your life. It's really annoying, you wish it would stop. You roll over in bed and stretch out your hand to grab your phone, patting the ground next to your bed in search of it. Wait, ground? What happened to your bedside table? And why is your bed so low?! You sit up and look around. This is not your room, how could you have forgotten? The details come back slowly and you remember pressing the button but nothing after, so you must've passed out. Examining your surroundings, you were expecting to see a world rid of all inconveniences, but your room is dirty and dark except for one flickering light mounted on a crude stand. Where is your time machine? How did you get here? You are lowkey freaking out and are also dressed in rags, so you're uncomfortable to the max. There is a shuffling noise outside your room. Your fight or flight response is activated, you only have a few seconds to act--What do you do?",
+    buttons: [["Get out of there!", "advanceTo(scenario.three_a)", ""],["Stick around...", "advanceTo(scenario.three_b)", ""]]
+  },
+
+  three_a: {
+    text: "You don't know who or what you're dealing with and you feel like the uncertainty of your situation leaves a bit too much room for danger and worst case scenarios, so you think it'd be best to take your future into your own hands and make the concrete decision to RUN. Jumping up, you look for another exit other than through the lopsided opening in the side of the shack. There is none and you see a shadow fall over the ratty cloth hanging down over the opening. In pure survival mode, you press yourself close to the wall of the shack next to the outlet and think invisible thoughts as a figure dressed in heavy rags from the nose down pushes the makeshift curtain aside and steps into the room. They immediately notice your absence from the mat on the floor and in that moment of confusion, you shove them with all your might and sprint off as fast as you can. You burst out of the rudimentary residence and find yourself in a complex network of shacks with a massive white wall towering above. Hearing your presumed captor call after you, you take off and don't stop until you're sure that you've lost them. You lean your hands on your knees panting, you can't seem to catch your breath and you're suspicious that the smog colored sky is the culprit. You straighten up and take a look around. What is this place? Is this really the future?",
+    buttons: [["Analyze the situation", "advanceTo(scenario.three_c)", ""]]
+  },
+
+  three_b: {
+    text: " You decide that you should take into consideration the fact that you have zero injuries and reason that this stranger must be an okay person. I mean, you are not restrained in any way and, taking a quick glance around, you see a glass of water near your mat. That's something good people do, right? Welp, time to find out. Your captor/savior moves aside the cloth hanging over the doorway and reveals themselves to be someone on the shorter side. That's really all you can discern from their figure since they are covered in rags from the nose down. You can't really tell if they're making an expression or not and are starting to feel more and more on edge. You think they read your body language because they put their hands up and back up a step. <br> 'Listen, I know you must be extremely confused right now, but let me explain. I'm not looking to hurt you. The only reason you're here is because when your machine crashed next to where I was taking samples. I couldn't just leave you there, you see? The environment gets decidedly more hostile around here at night, it wouldn't be safe.' <br> Okay, well that makes sense. They have a deep voice, does that mean that they're male? You have a few burning questions. <br> 'Okay right, I guess I should thank you. Thanks, really. But, where is my machine now? And what were you taking samples of? Who are you?' <br>'You're machine crashed right in front of me, you were deposited onto the soil in a protective shell that disappeared along with the machine. It's gone now. I was taking samples of the soil, there used to be a huge fracking operation nearby and the groundwater was inevitably contaminated with chemicals like methane, mercury, and lead. I'm trying to see if this world has recovered at all from the recklessness of our ancestors,' they explain and settle into a nearby duct taped folding chair. You're left reeling from the permanence of your situation without your time machine, but the fracking catastrophe isn't lost on you, how could energy companies could be so shortsighted to think that the benefits of natural gas collection be worth the slew of environmental dangers created by fracking? You shake your head solemnly; how could we have let it get so bad? There's one other question though..<br>'Alright..but this is nothing like the future that I imagined, why are you living so humbly?' <br> You heard your host chuckle, 'That, oh traveler, is a quite a story. One I'd be happy to tell you, but maybe give me some reassurance here that you're not a mad woman that will kill me in my sleep? I've brought you into my home and I have no idea who you are or if you pose a threat to me. You teleported here, for god's sake! I'm endlessly curious. Where did you come from?' <br> You explain everything and they are astounded. They ask a million questions and you try to fill them in as much as you can. As the discussion lengthens, you notice the pitch of your host's voice getting higher, you can't help but ask, 'Hey, if this is an invasive question then you don't feel pressured to answer, I'll drop it immediately, but..are you a girl?' They start, cough, and when they speak again their voice is back to the deep tone they had originally. They stand up and you're afraid you've crossed a serious line and are about to profusely apologize, but they speak before you can get the chance. <br>'To answer that, we'll need to go on a walk.' They hold out their hand to help you up. <br> 'Could I ask just one more thing before we go?' They wait expectantly. 'What can I call you?' <br>That elicits another chuckle from your host. 'Cal,' they say. 'Well, it's a pleasure to meet you, Cal, and thank you for taking care of me.' And then you are off on your way.",
+    buttons: [["Analyze the situation", "advanceTo(scenario.three_c)", ""]]
+  },
+
+  three_c: {
+    text: "The makeshift city is settled in a desert-like valley. You're about halfway up the slope, giving you a great view of where you came from. The white wall you caught a glimpse of before is in stark contrast to the filthy, rough looking settlement that surrounds it. You appear to be in the middle of nowhere. You spy a chain link fence covered in red and yellow signs further up the slope. Now what?",
+    buttons: [["Those signs have piqued your interest. Investigate!", "advanceTo(scenario.three_d)", ""], ["Ehh you still haven't quite caught your breath and feel like you're sort of suffocating from the pollution, <br/> so you're not quite up for another uphill battle. What's up with that wall though?", "advanceTo(scenario.three_e)", ""]]
+},
+
+  three_d: {
+    text: "You have to stop several times on your uphill trek to catch your breath, your lungs are having a great deal of trouble coping with this air pollution. Looking up, the sky looks how you'd imagine it'd look if someone burned fossil fuels like coal, oil, natural gas, and gasoline for over 400 years straight. Oh wait..man, how did we not get the clue? Was money really that important for things to end up like this? As you think this you realize how hypocritical you are. You who drives to school and work every day, you are just as much of a contributor to this future as the big companies were. Feeling ashamed, you finally reach the top. You are shocked at all that you can see from here. The fence is covered in warning signs signalling the end of the habitable zone and that land beyond the barrier is classified as ‘Hazardous Waste Lands'. Looping your fingers through the chain links, you stare in horror at the future of your planet. Rivers turned toxic with sludge, killing all wildlife and vegetation. Trash, everywhere, so much that it looks like the whole world has become a chemical dumping site. Not a speck of green or living in sight, just land ravaged by the ancestors of this time..your time..you wish you could go back, you would have changed your ways, but it's too late now <br> You feel something drip onto your hands. Yanking them off the fence, the glittery substances comes with you and DEVOURS YOUR ENTIRE BODY. No doubt the product of the waste river, these goopy slope monsters are right out of a Scooby-Doo episode. You provide much needed nutrients to the developing acidic fauna and they eventually overtake the world as the new cockroach. Excellent work.<br> ",
+    buttons: [["Play Again?", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+},
+
+  three_e: {
+    text: "You turn and are shocked at the view your height on the slope allows you see. The other side of the wall is plainly visible now and the sight is shocking. Everything has been rebuilt in a fashion not all that different from your time's architecture. The wall's residents are living comfortably, there are fields of green and buildings that seem to generate electricity. The shacks outside are completely at the mercy of the people within the wall depending on how much of the crop is shared with them (unless there's some hidden garden in this barren desert valley that the shacks care for, which seems very unlikely) and even more so since from your perspective you can't spot any sort of water source. How do these people live with themselves knowing that just outside their walls there are humans just like them suffering and living like dogs? It's completely unfair for these people to be refused access to the essentials of life. How there is still injustice after so many years of 'growth'. In truth, it seems more like the human race has reverted back to crueller times. <br> You hear a crackling sound to your left, whipping around that way, the setting sun blinds you for just a moment while you try to get your bearings, giving your attacker the perfect opening to smack you upside the head with a club, killing you instantly. Your attacker straightens up, the guilt of killing having ebbed after so many years of fighting for survival. They are from the outskirts of the shack village and there is never enough to go around to him and--because of the complete lack of contraceptive in their struggling, regressing society--his 7 siblings. They've had to resort to thieving and cannibalism to survive. You are to be dinner for the next couple days. The attacker wheezes as they descends the slope, their asthma acting up again.<br>",
+  buttons: [["Play Again?", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+},
+
+  three_f: {
+    text: "On you walk you learn that Cal and the greater majority of the shack community have asthma because of the air pollution. Cal takes you through the streets of shack city to their goods repair shop and explains that the establishment is the only reason they have been able to survive in the harsh reality of today. Having emphasised the importance of the shop, Cal reveals that she is female, but that she masks her features with layers and lowers her voice so the world won't find out. When you ask why, she admits that there is unfair treatment of women in business and how if they knew of her gender, they wouldn't respect her business as much as her male competitors and she wouldn't get the even deals she does today. Cal tells you that women in business are often targeted and seen as weaker, insufficient leaders. You are completely astounded. In this day and age, what did we do so wrong to have a gender wage gap on steroids? Cal surprises you by offering to make you her apprentice and, seeing that you have no other means of survival in this time, you accept. Your new mentor teaches you all the tools of the trade and you live humbly with Cal, keeping your identity as a women a secret per Cal's profuse warning. As the years stretch on, you start to develop minor asthma as well and wish you could go back and do something about this, to change the course of history so that Cal wouldn't have to hide her ambition or depend on a man for support. Cal passes quietly in the night years later, and having taught you everything she knows, you inherit the shop and take on your own apprentice, a kind kid from a few shops down that has made the shop his second home. You live to the ripe old age of 34 before drinking water with too much lead in it and die. Darn all that fracking!!",
+  buttons: [["Play Again?", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+},
+
+
+
+
+
+
+// ------------------------------------------------------------------- PRESENT ANUSHRI ---------------------------------------------------------
+
+
+  four: {
+    text: "You come out of your dark basement into the light of your hometown. Normal day, I guess. You shower, eat a light and healthy breakfast and start to make your way out the door. Your destination is about 30 minutes away. Do you decide to take your own car, or would you rather carpool with a group of friends. While carpooling would help save gas, taking your own car would give you a peace of mind from your chatty friends.",
+    buttons: [["Get your own ride. You don't need anyone's help.", "advanceTo(scenario.four_a)", ""],["Carpool!", "advanceTo(scenario.four_b)", ""]]
+  },
+
+  four_a: {
+    text: "While you may not have to deal with today's gossip, unfortunately you just contributed to the 75% of air pollution that is emitted through cars. You will now just be one more source to the ever rising climate change. Turning your music up to forget about this (but it will continue to haunt you forever) you drive on and come close to a yellow light. Do you speed up and try your luck, or do you slow to a stop.",
+    buttons: [["Speed up! What's life without a bit of risk?", "advanceTo(scenario.four_c)", ""],["Slow down! You're not trying to die.","advanceTo(scenario.four_d)", ""]]
+  },
+
+  four_b: {
+    text: "Congratulations! By carpooling you are doing your part to help keep the pollution emissions down and you will not be contributing to the 75% of air pollution that is emitted through cars. On the way to work, you notice people working with some large machines and pipes by the side of one of the less used roads. Do you go to investigate, or do you continue on to work?",
+    buttons: [["Sherlock Holmes this place.", "advanceTo(scenario.four_e)", ""],["Please. Making money is more important.","advanceTo(scenario.four_f)", ""]]
+  },
+
+  four_c: {
+    text: "Just as you hit your foot on the gas, you see that the yellow light has turned red. But now that you've committed, you make it to the other side. Though you continue, you soon see a police car following you. You drive your car to a curb, and the police comes to your car. The cops are awfully rude to you, grabbing your paperwork and speaking in a harsh tone. You wonder if it is because of your race, gender or age. The cop gets mad because of a comment you made and immediately threatens to take you to jail for you insubordination. Do you get mad at the officer for this discrimination and talk back, or do you say sorry even though you didn't think you did anything wrong?",
+    buttons: [["You never even said anything wrong. Defend yourself!", "advanceTo(scenario.four_g)", ""],["Say sorry, and make your way on to work, ashamed.","advanceTo(scenario.four_f)", ""]]
+  },
+
+    four_d: {
+    text: "You take the safe route and come to a stop. As you are waiting for the light to change, you notice a small scene that's taking place on the side of the adjacent road. A cop is seen roughly handling a young man, pushing him to the ground and shoving him, although he does not show any sign of self defence. Do you report this injustice to the officials or decide to not get involved and make your way to work?",
+    buttons: [["He's getting hurt! I have to help him!", "advanceTo(scenario.four_h)", ""],["I'm already late, my boss may get mad.","advanceTo(scenario.four_f)", ""]]
+  },
+
+  four_e: {
+    text: "You found a small company fracking illegally! As you are trying not to die because of the harmful chemicals that <em>will</em> eventually seep into your water. You call the police in order to take them down. Nice job! You have done your part in helping our environment! Do you feel that you deserve a vacation or do you want to continue on to work?",
+    buttons: [["I've actually needed a vacation for 3 years now.", "advanceTo(scenario.four_i)", ""],["I can only have a vacation after I earn. Duh.","advanceTo(scenario.four_f)", ""]]
+  },
+
+  four_f: {
+    text: "You have made it to work only a few minutes late. Phew! Even better, today is payday! You get your paycheck and hurriedly see how much money you made over the last two weeks. Although you were feeling good, you overhear two of your best friends arguing about their pay check. You know that they have the exact same job, but your male friend is making more than your female friend. That doesn't seem fair at all! It's the 21st century, C'MON. You are positive it won't be like this in the future, but don't know if your time machine will be able to make the trip. Do you try?",
+    buttons: [["Try the ride to the future. How bad can it be?", "advanceTo(scenario.three)", ""],["Continue on with your work. Don't have enough energy to fly forward 100 years.","advanceTo(scenario.four_l)", ""]]
+  },
+
+  four_g: {
+    text: "The officer erupts on you and gets very mad for 'talking back' and asks you to get out of the car. You cannot believe what you are hearing but follow the officer's direction. You are sure that if you had a different appearance, you would not be treated with this much disrespect and such severity. What a horrible end to such a nice day :(",
+    buttons: [["Play Again", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+  },
+
+  four_h: {
+    text: "You decide to drive up behind the action scene and take a video as proof of the police brutality. Then you go on to report the event and before long, more officers have come and they eventually help the young man. Good job, you just saved his life!!",
+    buttons: [["Play Again", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+  },
+
+  four_i: {
+    text: "It is time to choose your dream destination. Do you want to go to the serene beach or explore NYC?",
+    buttons: [["I LOVE THE BEACH", "advanceTo(scenario.four_j)", ""],["I've always wanted to go to New York!","advanceTo(scenario.four_k)", ""]]
+  },
+
+
+  four_j: {
+    text: "The beach is amazing, and you decide to do some underwater exploring. You get all the scuba gear and jump into the ocean. But when you are underwater, you are very disappointed. All of the coral is white and you barely see any fish! Once you resurface you learn that about 52% of the entire fish stock in the world has been completely depleted and these overfishing businesses continue to occur. Additionally, due to global warming, the oceans are heating up and that is killing the coral due to the ever increasing coral bleaching. This is destroying the habitat and displacing many coral reefs around the world. You don't know that to do! Do you want to try to see if anything was better in the past?",
+    buttons: [["Take our your machine and see if the past has a better underwater world ", "advanceTo(scenario.two)", ""],["Go back to your resort and discuss this growing problem with others.","advanceTo(scenario.four_m)", ""]]
+  },
+
+  four_k: {
+    text: "You love the life of the city, although you are worried about the amount of pollution that this city alone is emitting. You wonder how this place looked a 100 years in the past. Hmmm. After your relaxing vacation, do you make a trip to the past or do you stay in your comfortable present?",
+    buttons: [["I'm curious, how was it before?", "advanceTo(scenario.two)", ""],["I never liked to go out of my comfort zone anyway","advanceTo(scenario.four_l)", ""]]
+  },
+
+  four_l: {
+    text: "Stuck in your office from 9-5, just like always. So much for time travelling.",
+    buttons: [["Play Again", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+  },
+
+  four_m: {
+    text: "You decided to make a Protect the Ocean program. Way to go!",
+    buttons: [["Play Again", "advanceTo(scenario.one)", "changeBackground('earth.jpg');"]]
+  },
+
+
+
+
+
+
+  // five: {
+  //   text: "TO BE CONTINUED...",
+  //   buttons: [["Follow your Dog Downstairs", "advanceTo(scenario.five)"],["Search the Kitchen for a knife", "advanceTo(scenario.five)"]]
+  // },
+  // six: {
+  //   text: "",
+  //   buttons: [["Follow your Dog Downstairs", "advanceTo(scenario.five)"],["Search the Kitchen for a knife", "advanceTo(scenario.five)"]]
+  // },
+  // seven: {
+  //   text: "",
+  //   buttons: [["Follow your Dog Downstairs", "advanceTo(scenario.five)"],["Search the Kitchen for a knife", "advanceTo(scenario.five)"]]
+  // }
+  
+};
+
+advanceTo(scenario.one)
+</script>
+</div> <!-- background div -->
+</body>
+</html>
+
+
